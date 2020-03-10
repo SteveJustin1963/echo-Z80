@@ -2,7 +2,7 @@
 
 A simple Z80 echo program to test serial interfaces
 
-When you start it it displays
+When you start it displays
 
 ```
 Echo 2020
