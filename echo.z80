@@ -42,7 +42,14 @@ start:
             ld a, "\n"
             call putc
         _endIf
+        cp 3
+    _until z
     _enddo
+
+    ld HL, TXT_EXIT
+    call printPStr
+    di
+    halt
 
 printPStr:                          ; _ptr --
     ld C, (HL)
@@ -62,6 +69,7 @@ printPStr:                          ; _ptr --
 .include "serial.z80"
 
 TXT_INTRO:      .pstr "Echo 2020\r\n\r\n"
+TXT_EXIT:      .pstr "\r\n\r\ndone\r\n"
 
 org START_RAM
 
