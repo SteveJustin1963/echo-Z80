@@ -40,7 +40,7 @@ The emulator will start up a green screen serial terminal emulation and present 
 
 Echo has two modes: 6850 and custom mode
 
-To use the 6850 (as per the circuit by Grant Searl) ensure that
+To use the 6850 (as per the circuit by Grant Searle) ensure that
 
 ```
 SERIALMODE equ 6850
@@ -51,3 +51,7 @@ To use custom mode
 ```
 SERIALMODE equ 0
 ```
+
+### How to wire up a 6850
+
+![Grant Searle's serial interface](searle.gif)
