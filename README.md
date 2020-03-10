@@ -35,3 +35,19 @@ Echo can be emulated online by the following steps:
 This will cause ASM80 to start emulating the computer hardware specified in the `mycomputer.emu` file which is set up for a Z80 CPU which uses a Motorola 6850 ACIA serial chip mapped to ports $80 and $81.
 
 The emulator will start up a green screen serial terminal emulation and present you with a prompt
+
+### Serial Modes
+
+Echo has two modes: 6850 and custom mode
+
+To use the 6850 (as per the circuit by Grant Searl) ensure that
+
+```
+SERIALMODE equ 6850
+```
+
+To use custom mode
+
+```
+SERIALMODE equ 0
+```
