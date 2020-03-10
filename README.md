@@ -1,3 +1,3 @@
 # ECHO Z80
 
-SerMon is a serial monitor for the TEC-1
+A simple Z80 echo program to test serial interfaces
