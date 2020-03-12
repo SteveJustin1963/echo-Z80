@@ -49,7 +49,7 @@ serdy:
     ret
 
 hello:
-    .cstr "Hello World! ",0
+    .cstr "Hello World! "
 
 org START_RAM
 
