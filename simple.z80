@@ -1,0 +1,55 @@
+.engine mycomputer
+
+ROM_SIZE        equ     $800
+RAM_SIZE        equ     $800
+
+START_ROM       equ     $0
+START_RAM       equ     START_ROM + ROM_SIZE
+END_RAM         equ     START_RAM + RAM_SIZE
+RET_STACK       equ     END_RAM             ; return stack, grows down
+
+.org START_ROM
+RST00:                                      ; Reset
+    jp start
+
+.org $0038
+RST38:                                      ; rst 38
+    ret
+
+.org $0066
+RST66:
+    ret
+
+start:
+    di
+    ld SP, RET_STACK                        ; Initialise the return stack.
+    ld a, 15h
+    out (80h),a
+endless:
+    ld hl, hello
+    call printhl
+    jr endless
+
+printhl:
+    ld a,(hl)
+    or a
+    ret z
+    call printa
+    inc hl
+    jr printhl
+
+printa:
+    push af
+serdy:
+    in a,80h
+    and 02
+    jr z,serdy
+    pop af
+    out 81h,a
+    ret
+
+hello:
+    .cstr "Hello World! ",0
+
+org START_RAM
+
